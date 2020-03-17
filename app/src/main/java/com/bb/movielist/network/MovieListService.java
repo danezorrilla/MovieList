@@ -9,10 +9,11 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface MovieListService {
-    String API_KEY = Constants.API_KEY;
 
-    @GET("/search/movie?api_key=" + API_KEY + "&language=en-US&query={movieTitle}")
-    public Call<List<MovieListResult>>getMovieTitle(@Path("movieTitle")String movieTitle);
+    @GET("/3/search/movie")
+    public Call<MovieListResult>getMovieTitle(@Query("api_key") String apiKey,
+                                                    @Query("query") String query);
 }

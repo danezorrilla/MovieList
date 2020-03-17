@@ -28,7 +28,7 @@ public class MovieListRetrofit {
         return retrofit.create(MovieListService.class);
     }
 
-    public Call<List<MovieListResult>>getMovieTitle(String movieTitle){
-        return movieListService.getMovieTitle(movieTitle);
+    public Call<MovieListResult>getMovieTitle(String movieTitle){
+        return movieListService.getMovieTitle(Constants.API_KEY, movieTitle);
     }
 }

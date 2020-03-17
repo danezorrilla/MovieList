@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bb.movielist.R;
 import com.bb.movielist.model.MovieListResult;
+import com.bb.movielist.model.Result;
 
 import java.util.List;
 
@@ -27,19 +28,19 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.Movi
 
     @Override
     public void onBindViewHolder(@NonNull MovieListAdapter.MovieListViewHolder holder, int position) {
-
+        holder.movieTitleText.setText(movieListResultList.getResults().get(position).getTitle());
     }
 
     @Override
     public int getItemCount() {
-        return movieListResultList.size();
+        return movieListResultList.getResults().size();
     }
 
     public interface MovieListInterface{}
 
-    private List<MovieListResult> movieListResultList;
+    private MovieListResult movieListResultList;
 
-    public MovieListAdapter(List<MovieListResult> movieListResultList){
+    public MovieListAdapter(MovieListResult movieListResultList){
         this.movieListResultList = movieListResultList;
     }
 
